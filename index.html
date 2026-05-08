@@ -307,11 +307,6 @@ footer{background:var(--fg);color:var(--bg);border-top:2px solid rgba(255,255,25
 }
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;}}
 
-/* ── SPOTLIGHT ── */
-#spotlight{position:fixed;inset:0;pointer-events:none;z-index:2;transition:opacity .3s;}
-#spotlight.hidden{opacity:0;}
-
-
 
 /* ── SCRAMBLE ── */
 .scramble{display:inline-block;cursor:default;}
@@ -355,9 +350,6 @@ footer{background:var(--fg);color:var(--bg);border-top:2px solid rgba(255,255,25
 <!-- CURSOR -->
 <div id="cur-dot"></div>
 <div id="cur-ring"></div>
-
-<!-- SPOTLIGHT -->
-<canvas id="spotlight"></canvas>
 
 <!-- KONAMI OVERLAY -->
 <div id="konami-overlay">
@@ -833,48 +825,6 @@ function burst(x, y, count = 18) {
 document.querySelectorAll('.btn-primary, .btn-send, .btn-outline').forEach(btn => {
   btn.addEventListener('click', e => burst(e.clientX, e.clientY));
 });
-
-/* ══════════════════════════════
-   SPOTLIGHT / TORCH EFFECT
-══════════════════════════════ */
-const spotCanvas = document.getElementById('spotlight');
-const spotCtx = spotCanvas.getContext('2d');
-let spotX = window.innerWidth / 2, spotY = window.innerHeight / 2;
-let spotActive = false;
-
-function resizeSpot() {
-  spotCanvas.width = window.innerWidth;
-  spotCanvas.height = window.innerHeight;
-}
-resizeSpot();
-window.addEventListener('resize', resizeSpot);
-
-document.addEventListener('mousemove', e => {
-  spotX = e.clientX; spotY = e.clientY;
-  spotActive = true;
-  spotCanvas.classList.remove('hidden');
-});
-
-function drawSpot() {
-  spotCtx.clearRect(0, 0, spotCanvas.width, spotCanvas.height);
-  if (!spotActive) { requestAnimationFrame(drawSpot); return; }
-  // dark overlay
-  spotCtx.fillStyle = 'rgba(30,41,59,0.18)';
-  spotCtx.fillRect(0, 0, spotCanvas.width, spotCanvas.height);
-  // cut out light circle
-  const grad = spotCtx.createRadialGradient(spotX, spotY, 0, spotX, spotY, 180);
-  grad.addColorStop(0, 'rgba(30,41,59,0)');
-  grad.addColorStop(0.5, 'rgba(30,41,59,0)');
-  grad.addColorStop(1, 'rgba(30,41,59,0.18)');
-  spotCtx.globalCompositeOperation = 'destination-out';
-  spotCtx.fillStyle = grad;
-  spotCtx.beginPath();
-  spotCtx.arc(spotX, spotY, 180, 0, Math.PI * 2);
-  spotCtx.fill();
-  spotCtx.globalCompositeOperation = 'source-over';
-  requestAnimationFrame(drawSpot);
-}
-drawSpot();
 
 /* ══════════════════════════════
    SCRAMBLE TEXT
