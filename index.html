@@ -30,11 +30,7 @@ body:has(a:hover,button:hover) #cur-dot{width:18px;height:18px;background:var(--
 body:has(a:hover,button:hover) #cur-ring{width:50px;height:50px;border-color:var(--pink);opacity:.4;}
 
 /* ── PAGE LOADER ── */
-#loader{
-  position:fixed;inset:0;z-index:99990;background:var(--fg);
-  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1.5rem;
-  transition:opacity .5s ease,visibility .5s ease;
-}
+#loader{position:fixed;inset:0;z-index:99990;background:var(--fg);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1.5rem;transition:opacity .5s ease,visibility .5s ease;}
 #loader.done{opacity:0;visibility:hidden;}
 .loader-logo{font-family:var(--fd);font-size:3rem;font-weight:900;color:var(--bg);letter-spacing:-.02em;}
 .loader-logo span{color:var(--yellow);}
@@ -69,7 +65,6 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;display:flex;align-items:ce
 .c5{width:30px;height:30px;background:var(--yellow);border-radius:50%;border:2px solid var(--fg);top:55%;left:30%;}
 .c6{width:50px;height:50px;background:var(--pink);border-radius:50%;border:2px solid var(--fg);top:30%;left:45%;opacity:.6;}
 .c7{width:35px;height:35px;background:var(--accent);border:2px solid var(--fg);top:65%;right:20%;transform:rotate(30deg);opacity:.7;}
-
 .hero-left{position:relative;z-index:2;}
 .hero-chip{display:inline-flex;align-items:center;gap:.5rem;font-family:var(--fd);font-size:.75rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;background:var(--pink);color:var(--fg);padding:.4rem 1rem;border-radius:9999px;border:2px solid var(--fg);box-shadow:3px 3px 0 var(--fg);margin-bottom:1.5rem;}
 .hero-name{font-family:var(--fd);font-weight:900;font-size:clamp(2.8rem,5.5vw,5rem);line-height:1.05;margin-bottom:1rem;}
@@ -82,40 +77,22 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;display:flex;align-items:ce
 #typewriter{color:var(--accent);font-weight:600;border-right:2px solid var(--accent);padding-right:3px;animation:blink-caret .75s step-end infinite;}
 @keyframes blink-caret{0%,100%{border-color:var(--accent)}50%{border-color:transparent}}
 .hero-btns{display:flex;gap:.9rem;flex-wrap:wrap;}
-
 .btn-primary{font-family:var(--fd);font-size:.85rem;font-weight:700;text-decoration:none;background:var(--accent);color:var(--accent-fg);padding:.8rem 1.6rem;border-radius:9999px;border:2px solid var(--fg);box-shadow:var(--shadow);transition:all .2s cubic-bezier(.34,1.56,.64,1);display:inline-flex;align-items:center;gap:.5rem;cursor:none;position:relative;overflow:hidden;}
 .btn-primary:hover{transform:translate(-2px,-2px);box-shadow:var(--shadow-hover);}
 .btn-primary:active{transform:translate(2px,2px);box-shadow:2px 2px 0 var(--fg);}
 .btn-outline{font-family:var(--fd);font-size:.85rem;font-weight:700;text-decoration:none;background:transparent;color:var(--fg);padding:.8rem 1.6rem;border-radius:9999px;border:2px solid var(--fg);transition:all .2s cubic-bezier(.34,1.56,.64,1);cursor:none;position:relative;}
 .btn-outline:hover{background:var(--yellow);transform:translate(-2px,-2px);box-shadow:var(--shadow);}
-
-/* ── PHOTO RAINBOW BORDER ── */
 .hero-right{position:relative;z-index:2;display:flex;align-items:center;justify-content:center;}
-.rainbow-ring{
-  position:relative;padding:6px;border-radius:60% 40% 55% 45% / 45% 55% 40% 60%;
-  background:linear-gradient(var(--rb-angle,0deg),#ff0080,#ff8c00,#ffd700,#00ff88,#00bfff,#8b5cf6,#ff0080);
-  background-size:200% 200%;
-  animation:rbSpin 3s linear infinite,rbShift 4s linear infinite;
-  box-shadow:0 0 24px rgba(139,92,246,.4),0 0 48px rgba(244,114,182,.2);
-  transition:border-radius .6s ease;
-}
+.rainbow-ring{position:relative;padding:6px;border-radius:60% 40% 55% 45% / 45% 55% 40% 60%;background:linear-gradient(var(--rb-angle,0deg),#ff0080,#ff8c00,#ffd700,#00ff88,#00bfff,#8b5cf6,#ff0080);background-size:200% 200%;animation:rbSpin 3s linear infinite,rbShift 4s linear infinite;box-shadow:0 0 24px rgba(139,92,246,.4),0 0 48px rgba(244,114,182,.2);transition:border-radius .6s ease;}
 .rainbow-ring:hover{border-radius:40% 60% 45% 55% / 55% 45% 60% 40%;}
 @property --rb-angle{syntax:'<angle>';initial-value:0deg;inherits:false;}
 @keyframes rbSpin{to{--rb-angle:360deg}}
 @keyframes rbShift{0%{background-position:0% 0%}50%{background-position:100% 100%}100%{background-position:0% 0%}}
-.hero-img-blob{
-  width:320px;height:350px;
-  border-radius:58% 42% 53% 47% / 43% 57% 38% 62%;
-  overflow:hidden;background:var(--muted);
-  position:relative;display:block;border:3px solid var(--fg);
-  transition:border-radius .6s ease;
-}
+.hero-img-blob{width:320px;height:350px;border-radius:58% 42% 53% 47% / 43% 57% 38% 62%;overflow:hidden;background:var(--muted);position:relative;display:block;border:3px solid var(--fg);transition:border-radius .6s ease;}
 .rainbow-ring:hover .hero-img-blob{border-radius:38% 62% 43% 57% / 53% 47% 58% 42%;}
 .hero-img-blob img{width:100%;height:100%;object-fit:cover;display:block;}
 .hero-img-badge{position:absolute;bottom:-14px;right:-14px;background:var(--yellow);border:2px solid var(--fg);border-radius:16px;box-shadow:3px 3px 0 var(--fg);padding:.7rem 1rem;font-family:var(--fd);font-size:.75rem;font-weight:700;white-space:nowrap;}
 .hero-img-badge span{font-size:1.3rem;display:block;margin-bottom:.1rem;}
-
-
 
 /* ── STATS ── */
 .stats-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:1.2rem;padding:2.5rem 5%;border-top:2px solid var(--fg);border-bottom:2px solid var(--fg);background:var(--fg);position:relative;z-index:1;}
@@ -126,12 +103,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;display:flex;align-items:ce
 .sc:nth-child(4){background:var(--pink);}
 .sc-num{font-family:var(--fd);font-size:2.6rem;font-weight:900;line-height:1;margin-bottom:.35rem;}
 .sc-label{font-size:.72rem;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:var(--fg);opacity:.6;}
-
-/* squiggle */
 .squiggle-div{width:100%;overflow:hidden;line-height:0;position:relative;z-index:1;}
 .squiggle-div svg{display:block;width:100%;}
-
-/* ── SECTIONS ── */
 section{padding:6rem 5%;position:relative;z-index:1;}
 .section-tag{display:inline-flex;align-items:center;gap:.4rem;font-family:var(--fd);font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;background:var(--yellow);color:var(--fg);padding:.3rem .8rem;border-radius:9999px;border:2px solid var(--fg);box-shadow:2px 2px 0 var(--fg);margin-bottom:1rem;}
 .section-title{font-family:var(--fd);font-size:clamp(2rem,4vw,3.2rem);font-weight:800;line-height:1.15;margin-bottom:.5rem;}
@@ -230,7 +203,7 @@ section{padding:6rem 5%;position:relative;z-index:1;}
 .pj-title{font-family:var(--fd);font-size:1.05rem;font-weight:700;margin-bottom:.45rem;}
 .pj-desc{font-size:.85rem;color:var(--muted-fg);line-height:1.65;margin-bottom:1.2rem;}
 .pj-foot{display:flex;justify-content:space-between;align-items:center;}
-.pj-link{font-family:var(--fd);font-size:.72rem;font-weight:700;text-decoration:none;color:var(--accent);border-bottom:2px solid var(--accent);padding-bottom:1px;display:inline-flex;align-items:center;gap:.3rem;transition:gap .15s ease;}
+.pj-link{font-family:var(--fd);font-size:.72rem;font-weight:700;text-decoration:none;color:var(--accent);border-bottom:2px solid var(--accent);padding-bottom:1px;display:inline-flex;align-items:center;gap:.3rem;transition:gap .15s ease;cursor:pointer;}
 .pj-link:hover{gap:.6rem;}
 .pj-stack{display:flex;gap:.3rem;flex-wrap:wrap;}
 .pj-stack span{font-family:var(--fd);font-size:.6rem;font-weight:600;padding:.18rem .5rem;border-radius:9999px;background:var(--muted);border:1.5px solid var(--border);color:var(--muted-fg);}
@@ -298,7 +271,6 @@ footer{background:var(--fg);color:var(--bg);border-top:2px solid rgba(255,255,25
   .pj-grid{grid-template-columns:1fr 1fr;}
   .stats-strip{grid-template-columns:1fr 1fr;}
   .soc-sidebar{display:none;}
-
 }
 @media(max-width:580px){
   .sk-grid,.pj-grid,.stats-strip,.edu-grid{grid-template-columns:1fr;}
@@ -306,7 +278,6 @@ footer{background:var(--fg);color:var(--bg);border-top:2px solid rgba(255,255,25
   .skill-grid{grid-template-columns:1fr;}
 }
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;}}
-
 
 /* ── SCRAMBLE ── */
 .scramble{display:inline-block;cursor:default;}
@@ -321,16 +292,11 @@ footer{background:var(--fg);color:var(--bg);border-top:2px solid rgba(255,255,25
 .flip-back-title{font-family:var(--fd);font-size:1.1rem;font-weight:800;}
 .flip-back-sub{font-size:.82rem;color:rgba(255,253,245,.65);line-height:1.6;}
 .flip-back-badge{background:var(--yellow);color:var(--fg);font-family:var(--fd);font-size:.7rem;font-weight:700;padding:.3rem .8rem;border-radius:9999px;border:1.5px solid rgba(255,255,255,.3);}
-/* fix flip card heights */
 .edu-grid .flip-wrap{height:100%;}
 .edu-grid .edu-card{height:100%;}
 
 /* ── KONAMI OVERLAY ── */
-#konami-overlay{
-  position:fixed;inset:0;z-index:999990;
-  background:var(--fg);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1.5rem;
-  opacity:0;visibility:hidden;transition:opacity .4s ease,visibility .4s ease;
-}
+#konami-overlay{position:fixed;inset:0;z-index:999990;background:var(--fg);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1.5rem;opacity:0;visibility:hidden;transition:opacity .4s ease,visibility .4s ease;}
 #konami-overlay.show{opacity:1;visibility:visible;}
 .konami-emoji{font-size:5rem;animation:koSpin 1s ease-in-out infinite alternate;}
 @keyframes koSpin{from{transform:rotate(-15deg) scale(1)}to{transform:rotate(15deg) scale(1.1)}}
@@ -343,6 +309,181 @@ footer{background:var(--fg);color:var(--bg);border-top:2px solid rgba(255,255,25
 .ks:nth-child(1){width:200px;height:200px;border-radius:50%;top:-40px;left:-40px;background:rgba(139,92,246,.15);}
 .ks:nth-child(2){width:120px;height:120px;bottom:10%;right:5%;background:rgba(244,114,182,.15);animation-direction:reverse;}
 .ks:nth-child(3){width:80px;height:80px;border-radius:50%;top:20%;right:15%;background:rgba(251,191,36,.15);animation-duration:3s;}
+
+/* ════════════════════════════════════════
+   ✦ NEW FEATURES ✦
+════════════════════════════════════════ */
+
+
+
+/* ── 2. PROJECT MODAL ── */
+#proj-modal-overlay{
+  position:fixed;inset:0;z-index:99900;
+  background:rgba(30,41,59,.85);backdrop-filter:blur(8px);
+  display:flex;align-items:center;justify-content:center;
+  opacity:0;visibility:hidden;transition:opacity .3s ease,visibility .3s ease;
+}
+#proj-modal-overlay.open{opacity:1;visibility:visible;}
+.proj-modal-box{
+  background:var(--card);border:2px solid var(--fg);border-radius:24px;
+  box-shadow:var(--shadow-lg);width:min(560px,92vw);
+  padding:2rem;position:relative;
+  transform:translateY(24px) scale(.96);
+  transition:transform .35s cubic-bezier(.34,1.2,.64,1);
+  max-height:85vh;overflow-y:auto;
+}
+#proj-modal-overlay.open .proj-modal-box{transform:none;}
+.modal-close-btn{
+  position:absolute;top:1rem;right:1rem;
+  width:34px;height:34px;border-radius:50%;
+  background:var(--muted);border:2px solid var(--fg);
+  display:flex;align-items:center;justify-content:center;
+  font-size:1rem;font-weight:700;cursor:pointer;
+  box-shadow:2px 2px 0 var(--fg);transition:all .2s ease;
+}
+.modal-close-btn:hover{background:var(--pink);transform:rotate(90deg);}
+.modal-thumb{height:180px;border-radius:16px;border:2px solid var(--fg);margin-bottom:1.5rem;display:flex;align-items:center;justify-content:center;font-size:4rem;position:relative;overflow:hidden;}
+.modal-type{font-size:.62rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted-fg);margin-bottom:.3rem;}
+.modal-title{font-family:var(--fd);font-size:1.5rem;font-weight:800;margin-bottom:.7rem;}
+.modal-desc{font-size:.92rem;color:var(--muted-fg);line-height:1.75;margin-bottom:1.2rem;}
+.modal-stack{display:flex;gap:.4rem;flex-wrap:wrap;margin-bottom:1.5rem;}
+.modal-stack span{font-family:var(--fd);font-size:.68rem;font-weight:700;padding:.3rem .75rem;border-radius:9999px;background:var(--muted);border:1.5px solid var(--fg);color:var(--fg);}
+.modal-btn{font-family:var(--fd);font-size:.82rem;font-weight:700;background:var(--accent);color:var(--accent-fg);padding:.7rem 1.4rem;border-radius:9999px;border:2px solid var(--fg);box-shadow:3px 3px 0 var(--fg);text-decoration:none;display:inline-flex;align-items:center;gap:.4rem;transition:all .2s ease;}
+.modal-btn:hover{transform:translate(-2px,-2px);box-shadow:5px 5px 0 var(--fg);}
+
+/* ── 3. TYPING SOUND INDICATOR ── */
+#sound-toggle{
+  position:fixed;bottom:1.2rem;right:1.2rem;z-index:800;
+  width:44px;height:44px;border-radius:50%;
+  background:var(--card);border:2px solid var(--fg);
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.1rem;cursor:pointer;
+  box-shadow:3px 3px 0 var(--fg);
+  transition:all .2s cubic-bezier(.34,1.56,.64,1);
+}
+#sound-toggle:hover{transform:scale(1.15) rotate(10deg);background:var(--yellow);}
+#sound-toggle.muted{opacity:.5;}
+
+/* ── 4. AI CHAT ASSISTANT ── */
+#ai-chat-btn{
+  position:fixed;bottom:5rem;right:1.2rem;z-index:800;
+  width:54px;height:54px;border-radius:50%;
+  background:var(--accent);border:2px solid var(--fg);
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.4rem;cursor:pointer;
+  box-shadow:var(--shadow);
+  transition:all .2s cubic-bezier(.34,1.56,.64,1);
+}
+#ai-chat-btn:hover{transform:scale(1.1) translate(-2px,-2px);box-shadow:var(--shadow-hover);}
+#ai-chat-bubble{
+  position:fixed;bottom:10.5rem;right:1.2rem;z-index:800;
+  width:min(340px,90vw);background:var(--card);
+  border:2px solid var(--fg);border-radius:24px;
+  box-shadow:var(--shadow-lg);
+  display:flex;flex-direction:column;
+  overflow:hidden;
+  opacity:0;visibility:hidden;transform:translateY(16px) scale(.95);
+  transition:all .3s cubic-bezier(.34,1.2,.64,1);
+}
+#ai-chat-bubble.open{opacity:1;visibility:visible;transform:none;}
+.chat-header{background:var(--accent);color:var(--accent-fg);padding:.8rem 1rem;display:flex;align-items:center;gap:.6rem;border-bottom:2px solid var(--fg);}
+.chat-header-dot{width:8px;height:8px;background:var(--mint);border-radius:50%;animation:pulse 1.5s infinite;}
+.chat-header-title{font-family:var(--fd);font-size:.82rem;font-weight:700;}
+.chat-header-sub{font-size:.6rem;opacity:.7;margin-left:auto;}
+.chat-msgs{padding:.8rem;display:flex;flex-direction:column;gap:.6rem;height:260px;overflow-y:auto;scroll-behavior:smooth;}
+.chat-msgs::-webkit-scrollbar{width:4px;}
+.chat-msgs::-webkit-scrollbar-thumb{background:var(--border);border-radius:4px;}
+.chat-msg{max-width:85%;padding:.55rem .85rem;border-radius:14px;font-size:.8rem;line-height:1.5;border:1.5px solid var(--border);}
+.chat-msg.bot{background:var(--muted);color:var(--fg);align-self:flex-start;border-radius:4px 14px 14px 14px;}
+.chat-msg.user{background:var(--accent);color:var(--accent-fg);align-self:flex-end;border-radius:14px 4px 14px 14px;border-color:var(--accent);}
+.chat-msg.typing{background:var(--muted);align-self:flex-start;border-radius:4px 14px 14px 14px;}
+.typing-dots{display:flex;gap:4px;padding:.2rem 0;}
+.typing-dots span{width:6px;height:6px;background:var(--muted-fg);border-radius:50%;animation:typeDot 1.2s infinite;}
+.typing-dots span:nth-child(2){animation-delay:.2s;}
+.typing-dots span:nth-child(3){animation-delay:.4s;}
+@keyframes typeDot{0%,60%,100%{transform:translateY(0)}30%{transform:translateY(-6px)}}
+.chat-quick{display:flex;gap:.4rem;flex-wrap:wrap;padding:.5rem .8rem;border-top:1px solid var(--border);}
+.chat-quick-btn{font-family:var(--fd);font-size:.62rem;font-weight:700;padding:.25rem .6rem;border-radius:9999px;background:var(--muted);border:1.5px solid var(--fg);cursor:pointer;transition:all .15s ease;}
+.chat-quick-btn:hover{background:var(--accent);color:var(--accent-fg);border-color:var(--accent);}
+.chat-input-row{display:flex;gap:.5rem;padding:.7rem .8rem;border-top:2px solid var(--fg);}
+#chat-input{flex:1;background:var(--muted);border:1.5px solid var(--border);border-radius:9999px;padding:.45rem .9rem;font-family:var(--fb);font-size:.8rem;outline:none;color:var(--fg);}
+#chat-input:focus{border-color:var(--accent);}
+#chat-send{width:32px;height:32px;border-radius:50%;background:var(--accent);border:1.5px solid var(--fg);display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:.8rem;flex-shrink:0;transition:all .15s ease;}
+#chat-send:hover{background:var(--pink);}
+
+/* ── 5. TERMINAL MODE ── */
+#terminal-overlay{
+  position:fixed;inset:0;z-index:99800;
+  background:rgba(0,0,0,.95);
+  display:flex;align-items:center;justify-content:center;
+  opacity:0;visibility:hidden;transition:opacity .3s ease,visibility .3s ease;
+}
+#terminal-overlay.open{opacity:1;visibility:visible;}
+.terminal-box{
+  width:min(680px,95vw);max-height:75vh;
+  background:#0d1117;border:2px solid #30363d;border-radius:16px;
+  overflow:hidden;box-shadow:0 0 60px rgba(0,255,100,.1);
+  display:flex;flex-direction:column;
+}
+.terminal-bar{background:#161b22;padding:.7rem 1rem;display:flex;align-items:center;gap:.5rem;border-bottom:1px solid #30363d;}
+.terminal-dot{width:12px;height:12px;border-radius:50%;}
+.terminal-dot.r{background:#ff5f57;cursor:pointer;}
+.terminal-dot.y{background:#febc2e;}
+.terminal-dot.g{background:#28c840;}
+.terminal-title{font-family:var(--fd);font-size:.72rem;color:#8b949e;margin-left:.5rem;}
+.terminal-body{flex:1;padding:1rem;overflow-y:auto;font-family:'Courier New',monospace;font-size:.82rem;color:#c9d1d9;line-height:1.7;}
+.terminal-body::-webkit-scrollbar{width:4px;}
+.terminal-body::-webkit-scrollbar-thumb{background:#30363d;}
+.term-line{margin:0;}
+.term-line.cmd{color:#58a6ff;}
+.term-line.out{color:#c9d1d9;}
+.term-line.success{color:#3fb950;}
+.term-line.error{color:#ff7b72;}
+.term-line.info{color:#d2a8ff;}
+.terminal-input-row{display:flex;align-items:center;gap:.5rem;padding:.7rem 1rem;border-top:1px solid #30363d;background:#0d1117;}
+.terminal-prompt{font-family:'Courier New',monospace;font-size:.82rem;color:#3fb950;white-space:nowrap;}
+#terminal-input{flex:1;background:transparent;border:none;outline:none;font-family:'Courier New',monospace;font-size:.82rem;color:#c9d1d9;caret-color:#58a6ff;}
+#term-open-btn{
+  position:fixed;bottom:1.2rem;left:50%;transform:translateX(-50%);z-index:800;
+  font-family:var(--fd);font-size:.7rem;font-weight:700;
+  background:var(--fg);color:var(--bg);
+  padding:.45rem 1rem;border-radius:9999px;
+  border:2px solid var(--fg);box-shadow:3px 3px 0 rgba(0,255,100,.4);
+  cursor:pointer;transition:all .2s ease;
+  display:flex;align-items:center;gap:.4rem;
+}
+#term-open-btn:hover{background:#0d1117;box-shadow:4px 4px 0 #3fb950;color:#3fb950;}
+
+
+
+/* ── 7. MATRIX RAIN SECRET MODE ── */
+#matrix-overlay{
+  position:fixed;inset:0;z-index:99700;
+  pointer-events:none;
+  opacity:0;transition:opacity .5s ease;
+}
+#matrix-overlay.show{opacity:1;pointer-events:all;}
+#matrix-canvas{display:block;width:100%;height:100%;}
+#matrix-exit{
+  position:fixed;top:1.5rem;right:5rem;z-index:99710;
+  font-family:var(--fd);font-size:.75rem;font-weight:700;
+  background:#0d1117;color:#00ff41;
+  padding:.5rem 1.2rem;border-radius:9999px;
+  border:2px solid #00ff41;box-shadow:0 0 12px rgba(0,255,65,.4);
+  cursor:pointer;opacity:0;transition:opacity .5s ease;
+  pointer-events:none;
+}
+#matrix-overlay.show ~ #matrix-exit,
+#matrix-exit.show{opacity:1;pointer-events:all;}
+.matrix-hint{
+  position:fixed;bottom:4rem;left:50%;transform:translateX(-50%);
+  font-family:var(--fd);font-size:.65rem;font-weight:700;
+  color:var(--muted-fg);background:var(--muted);
+  padding:.3rem .8rem;border-radius:9999px;border:1.5px solid var(--border);
+  z-index:500;opacity:.6;pointer-events:none;
+  animation:fadeInOut 4s ease 3s forwards;
+}
+@keyframes fadeInOut{0%{opacity:.6}80%{opacity:.6}100%{opacity:0}}
 </style>
 </head>
 <body>
@@ -362,15 +503,63 @@ footer{background:var(--fg);color:var(--bg);border-top:2px solid rgba(255,255,25
 
 <!-- LOADER -->
 <div id="loader">
-  <div class="loader-shapes">
-    <div class="ls"></div><div class="ls"></div><div class="ls"></div>
-  </div>
+  <div class="loader-shapes"><div class="ls"></div><div class="ls"></div><div class="ls"></div></div>
   <div class="loader-logo">Ali<span>f</span></div>
   <div class="loader-bar-wrap"><div class="loader-bar" id="lbar"></div></div>
   <div class="loader-txt" id="ltxt">Loading...</div>
 </div>
 
+<!-- ── FEATURE 5: TERMINAL OPEN BTN ── -->
+<button id="term-open-btn">⌨ Terminal</button>
 
+<!-- ── FEATURE 3: SOUND TOGGLE ── -->
+<div id="sound-toggle" title="Toggle typing sound">🔊</div>
+
+<!-- ── FEATURE 4: AI CHAT BUTTON ── -->
+<div id="ai-chat-btn" title="Chat with AI">🤖</div>
+
+<!-- ── FEATURE 4: AI CHAT BUBBLE ── -->
+<div id="ai-chat-bubble">
+  <div class="chat-header">
+    <div class="chat-header-dot"></div>
+    <div class="chat-header-title">Ask about Alif 🤖</div>
+    <div class="chat-header-sub">AI Assistant</div>
+  </div>
+  <div class="chat-msgs" id="chat-msgs">
+    <div class="chat-msg bot">Hi! 👋 I'm Alif's AI assistant. Ask me anything about him!</div>
+  </div>
+  <div class="chat-quick">
+    <button class="chat-quick-btn" onclick="quickAsk('Who is Alif?')">Who is Alif?</button>
+    <button class="chat-quick-btn" onclick="quickAsk('What are his skills?')">Skills?</button>
+    <button class="chat-quick-btn" onclick="quickAsk('Is he available for internship?')">Internship?</button>
+    <button class="chat-quick-btn" onclick="quickAsk('What projects has he built?')">Projects?</button>
+  </div>
+  <div class="chat-input-row">
+    <input id="chat-input" type="text" placeholder="Ask something..."/>
+    <div id="chat-send">➤</div>
+  </div>
+</div>
+
+<!-- ── FEATURE 5: TERMINAL OVERLAY ── -->
+<div id="terminal-overlay">
+  <div class="terminal-box">
+    <div class="terminal-bar">
+      <div class="terminal-dot r" id="term-close-dot"></div>
+      <div class="terminal-dot y"></div>
+      <div class="terminal-dot g"></div>
+      <div class="terminal-title">alif@portfolio ~ terminal</div>
+    </div>
+    <div class="terminal-body" id="terminal-body"></div>
+    <div class="terminal-input-row">
+      <span class="terminal-prompt">alif@portfolio:~$ </span>
+      <input id="terminal-input" type="text" placeholder="type 'help' for commands..." autocomplete="off" spellcheck="false"/>
+    </div>
+  </div>
+</div>
+
+<!-- ── FEATURE 7: MATRIX OVERLAY ── -->
+<div id="matrix-overlay"><canvas id="matrix-canvas"></canvas></div>
+<button id="matrix-exit">✕ Exit Matrix</button>
 
 <!-- SOCIAL SIDEBAR -->
 <div class="soc-sidebar">
@@ -384,7 +573,7 @@ footer{background:var(--fg);color:var(--bg);border-top:2px solid rgba(255,255,25
 
 <!-- NAV -->
 <nav>
-  <a href="#home" class="nav-logo"><span class="nav-logo-dot"></span>Alif</a>
+  <a href="#home" class="nav-logo"><span class="nav-logo-dot"></span>[ Alif|Developer ]</a>
   <ul class="nav-links">
     <li><a href="#about">About</a></li>
     <li><a href="#education">Education</a></li>
@@ -473,22 +662,10 @@ footer{background:var(--fg);color:var(--bg);border-top:2px solid rgba(255,255,25
       <p>I love building things that matter. Whether it's a web app, a data pipeline, or a side project — I'm always coding. Currently deep-diving into <em>Software Development</em>.</p>
       <p>When I'm not in class, I'm debugging at 2AM or reading about <em>System Design</em>. 🚀</p>
       <div class="skill-grid">
-        <div class="skill-pill">
-          <div class="skill-pill-top"><span class="skill-name">Programming</span><span class="skill-pct">85%</span></div>
-          <div class="skill-track"><div class="skill-fill" data-w="85%"></div></div>
-        </div>
-        <div class="skill-pill">
-          <div class="skill-pill-top"><span class="skill-name">Web Dev</span><span class="skill-pct">75%</span></div>
-          <div class="skill-track"><div class="skill-fill" data-w="75%"></div></div>
-        </div>
-        <div class="skill-pill">
-          <div class="skill-pill-top"><span class="skill-name">Problem Solving</span><span class="skill-pct">80%</span></div>
-          <div class="skill-track"><div class="skill-fill" data-w="80%"></div></div>
-        </div>
-        <div class="skill-pill">
-          <div class="skill-pill-top"><span class="skill-name">Leadership</span><span class="skill-pct">90%</span></div>
-          <div class="skill-track"><div class="skill-fill" data-w="90%"></div></div>
-        </div>
+        <div class="skill-pill"><div class="skill-pill-top"><span class="skill-name">Programming</span><span class="skill-pct">85%</span></div><div class="skill-track"><div class="skill-fill" data-w="85%"></div></div></div>
+        <div class="skill-pill"><div class="skill-pill-top"><span class="skill-name">Web Dev</span><span class="skill-pct">75%</span></div><div class="skill-track"><div class="skill-fill" data-w="75%"></div></div></div>
+        <div class="skill-pill"><div class="skill-pill-top"><span class="skill-name">Problem Solving</span><span class="skill-pct">80%</span></div><div class="skill-track"><div class="skill-fill" data-w="80%"></div></div></div>
+        <div class="skill-pill"><div class="skill-pill-top"><span class="skill-name">Leadership</span><span class="skill-pct">90%</span></div><div class="skill-track"><div class="skill-fill" data-w="90%"></div></div></div>
       </div>
     </div>
   </div>
@@ -511,11 +688,7 @@ footer{background:var(--fg);color:var(--bg);border-top:2px solid rgba(255,255,25
           <div class="edu-meta">Expected: 2026 · 2nd Year</div>
           <div class="edu-gpa">3.72 / 4.00</div>
         </div>
-        <div class="flip-back">
-          <div class="flip-back-badge">🎓 Currently Studying</div>
-          <div class="flip-back-title">B.Sc. CSE</div>
-          <div class="flip-back-sub">Khwaja Yunus Ali University<br/>Sirajganj, Bangladesh<br/>Expected Graduation: 2026</div>
-        </div>
+        <div class="flip-back"><div class="flip-back-badge">🎓 Currently Studying</div><div class="flip-back-title">B.Sc. CSE</div><div class="flip-back-sub">Khwaja Yunus Ali University<br/>Sirajganj, Bangladesh<br/>Expected Graduation: 2026</div></div>
       </div>
     </div>
     <div class="flip-wrap reveal" style="min-height:220px;">
@@ -527,11 +700,7 @@ footer{background:var(--fg);color:var(--bg);border-top:2px solid rgba(255,255,25
           <div class="edu-meta">Science Group</div>
           <div class="edu-gpa">4.50 / 5.00</div>
         </div>
-        <div class="flip-back">
-          <div class="flip-back-badge">📚 HSC — Science</div>
-          <div class="flip-back-title">GPA 4.50 / 5.00</div>
-          <div class="flip-back-sub">Belkuchi Government College<br/>Belkuchi, Sirajganj<br/>Science Group · 2021–2023</div>
-        </div>
+        <div class="flip-back"><div class="flip-back-badge">📚 HSC — Science</div><div class="flip-back-title">GPA 4.50 / 5.00</div><div class="flip-back-sub">Belkuchi Government College<br/>Belkuchi, Sirajganj<br/>Science Group · 2021–2023</div></div>
       </div>
     </div>
     <div class="flip-wrap reveal" style="min-height:220px;">
@@ -543,11 +712,7 @@ footer{background:var(--fg);color:var(--bg);border-top:2px solid rgba(255,255,25
           <div class="edu-meta">Science Group · Belkuchi, Sirajganj</div>
           <div class="edu-gpa">5.00 / 5.00</div>
         </div>
-        <div class="flip-back">
-          <div class="flip-back-badge">🏆 Perfect GPA!</div>
-          <div class="flip-back-title">GPA 5.00 / 5.00</div>
-          <div class="flip-back-sub">Shohagpur Govt. S.K Pilot Model High School<br/>Science Group · 2019–2020</div>
-        </div>
+        <div class="flip-back"><div class="flip-back-badge">🏆 Perfect GPA!</div><div class="flip-back-title">GPA 5.00 / 5.00</div><div class="flip-back-sub">Shohagpur Govt. S.K Pilot Model High School<br/>Science Group · 2019–2020</div></div>
       </div>
     </div>
     <div class="flip-wrap reveal" style="min-height:220px;">
@@ -559,11 +724,7 @@ footer{background:var(--fg);color:var(--bg);border-top:2px solid rgba(255,255,25
           <div class="edu-meta">Dream · Dedication · Discipline 💪</div>
           <div class="edu-gpa">∞</div>
         </div>
-        <div class="flip-back" style="background:var(--accent);">
-          <div class="flip-back-badge">💜 The Mission</div>
-          <div class="flip-back-title">Software Engineer</div>
-          <div class="flip-back-sub">Every line of code brings me closer.<br/>Dream big. Work hard.<br/>Never stop learning. 🚀</div>
-        </div>
+        <div class="flip-back" style="background:var(--accent);"><div class="flip-back-badge">💜 The Mission</div><div class="flip-back-title">Software Engineer</div><div class="flip-back-sub">Every line of code brings me closer.<br/>Dream big. Work hard.<br/>Never stop learning. 🚀</div></div>
       </div>
     </div>
   </div>
@@ -594,11 +755,36 @@ footer{background:var(--fg);color:var(--bg);border-top:2px solid rgba(255,255,25
     <p class="section-sub">Things I've made and shipped.</p>
   </div>
   <div class="pj-grid">
-    <div class="pj-card tilt-card reveal"><div class="pj-thumb"><div class="pj-thumb-dots"></div><span>🗂️</span><div class="pj-num-bg">01</div></div><div class="pj-body"><div class="pj-type">Web App</div><div class="pj-title">Project Name One</div><p class="pj-desc">Brief description of what this project does and the problem it solves.</p><div class="pj-foot"><a href="#" class="pj-link">View Project →</a><div class="pj-stack"><span>React</span><span>Node</span></div></div></div></div>
-    <div class="pj-card tilt-card reveal"><div class="pj-thumb"><div class="pj-thumb-dots"></div><span>📊</span><div class="pj-num-bg">02</div></div><div class="pj-body"><div class="pj-type">Data Project</div><div class="pj-title">Project Name Two</div><p class="pj-desc">Dataset used, insights discovered, and the tools applied in this project.</p><div class="pj-foot"><a href="#" class="pj-link">View Project →</a><div class="pj-stack"><span>Python</span><span>SQL</span></div></div></div></div>
-    <div class="pj-card tilt-card reveal"><div class="pj-thumb"><div class="pj-thumb-dots"></div><span>🤖</span><div class="pj-num-bg">03</div></div><div class="pj-body"><div class="pj-type">AI Project</div><div class="pj-title">Project Name Three</div><p class="pj-desc">Model, training process and real-world application of this project.</p><div class="pj-foot"><a href="#" class="pj-link">View Project →</a><div class="pj-stack"><span>Python</span><span>ML</span></div></div></div></div>
+    <div class="pj-card tilt-card reveal">
+      <div class="pj-thumb"><div class="pj-thumb-dots"></div><span>🗂️</span><div class="pj-num-bg">01</div></div>
+      <div class="pj-body"><div class="pj-type">Web App</div><div class="pj-title">Project Name One</div><p class="pj-desc">Brief description of what this project does and the problem it solves.</p>
+      <div class="pj-foot"><a class="pj-link" onclick="openModal(0)">View Project →</a><div class="pj-stack"><span>React</span><span>Node</span></div></div></div>
+    </div>
+    <div class="pj-card tilt-card reveal">
+      <div class="pj-thumb"><div class="pj-thumb-dots"></div><span>📊</span><div class="pj-num-bg">02</div></div>
+      <div class="pj-body"><div class="pj-type">Data Project</div><div class="pj-title">Project Name Two</div><p class="pj-desc">Dataset used, insights discovered, and the tools applied in this project.</p>
+      <div class="pj-foot"><a class="pj-link" onclick="openModal(1)">View Project →</a><div class="pj-stack"><span>Python</span><span>SQL</span></div></div></div>
+    </div>
+    <div class="pj-card tilt-card reveal">
+      <div class="pj-thumb"><div class="pj-thumb-dots"></div><span>🤖</span><div class="pj-num-bg">03</div></div>
+      <div class="pj-body"><div class="pj-type">AI Project</div><div class="pj-title">Project Name Three</div><p class="pj-desc">Model, training process and real-world application of this project.</p>
+      <div class="pj-foot"><a class="pj-link" onclick="openModal(2)">View Project →</a><div class="pj-stack"><span>Python</span><span>ML</span></div></div></div>
+    </div>
   </div>
 </section>
+
+<!-- ── FEATURE 2: PROJECT MODAL ── -->
+<div id="proj-modal-overlay">
+  <div class="proj-modal-box">
+    <div class="modal-close-btn" id="modal-close">✕</div>
+    <div class="modal-thumb" id="modal-thumb"></div>
+    <div class="modal-type" id="modal-type"></div>
+    <div class="modal-title" id="modal-title"></div>
+    <div class="modal-desc" id="modal-desc"></div>
+    <div class="modal-stack" id="modal-stack"></div>
+    <a href="#" class="modal-btn" id="modal-link">View on GitHub →</a>
+  </div>
+</div>
 
 <!-- CONTACT -->
 <section id="contact">
@@ -630,295 +816,433 @@ footer{background:var(--fg);color:var(--bg);border-top:2px solid rgba(255,255,25
   <div class="ft">© 2026 · <strong>All Rights Reserved</strong></div>
 </footer>
 
+<!-- matrix hint -->
+<div class="matrix-hint">💡 Type "matrix" anywhere to activate secret mode</div>
+
 <script>
 /* ══════════════════════════════
    PAGE LOADER
 ══════════════════════════════ */
-const lbar = document.getElementById('lbar');
-const ltxt = document.getElementById('ltxt');
-const loader = document.getElementById('loader');
-const msgs = ['Initializing...','Loading styles...','Preparing portfolio...','Almost there...','Welcome! 🎉'];
-let prog = 0;
-const li = setInterval(() => {
-  prog += Math.random() * 18 + 5;
-  if (prog > 100) prog = 100;
-  lbar.style.width = prog + '%';
-  ltxt.textContent = msgs[Math.min(Math.floor(prog / 25), msgs.length - 1)];
-  if (prog >= 100) {
-    clearInterval(li);
-    setTimeout(() => loader.classList.add('done'), 400);
-  }
-}, 120);
+const lbar=document.getElementById('lbar'),ltxt=document.getElementById('ltxt'),loader=document.getElementById('loader');
+const msgs=['Initializing...','Loading styles...','Preparing portfolio...','Almost there...','Welcome! 🎉'];
+let prog=0;
+const li=setInterval(()=>{
+  prog+=Math.random()*18+5;if(prog>100)prog=100;
+  lbar.style.width=prog+'%';
+  ltxt.textContent=msgs[Math.min(Math.floor(prog/25),msgs.length-1)];
+  if(prog>=100){clearInterval(li);setTimeout(()=>loader.classList.add('done'),400);}
+},120);
 
 /* ══════════════════════════════
    CUSTOM CURSOR
 ══════════════════════════════ */
-const dot = document.getElementById('cur-dot');
-const ring = document.getElementById('cur-ring');
-let mx = 0, my = 0, rx = 0, ry = 0;
-document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; dot.style.left = mx + 'px'; dot.style.top = my + 'px'; });
-(function loop() { rx += (mx - rx) * .1; ry += (my - ry) * .1; ring.style.left = rx + 'px'; ring.style.top = ry + 'px'; requestAnimationFrame(loop); })();
+const dot=document.getElementById('cur-dot'),ring=document.getElementById('cur-ring');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;dot.style.left=mx+'px';dot.style.top=my+'px';});
+(function loop(){rx+=(mx-rx)*.1;ry+=(my-ry)*.1;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(loop);})();
 
 /* ══════════════════════════════
    PARALLAX FLOATING SHAPES
 ══════════════════════════════ */
-const shapes = document.querySelectorAll('.conf');
-document.addEventListener('mousemove', e => {
-  const cx = e.clientX / window.innerWidth - .5;
-  const cy = e.clientY / window.innerHeight - .5;
-  shapes.forEach((s, i) => {
-    const depth = (i % 3 + 1) * 14;
-    s.style.transform = `translate(${cx * depth}px, ${cy * depth}px)`;
-  });
-});
-// also gentle float animation via JS
-const floatOffsets = Array.from(shapes).map(() => Math.random() * Math.PI * 2);
-(function floatLoop(t) {
-  shapes.forEach((s, i) => {
-    const base = floatOffsets[i];
-    const y = Math.sin(t * .001 + base) * 12;
-    const x = Math.cos(t * .0007 + base) * 6;
-    s.style.transform = `translate(${x}px, ${y}px)`;
-  });
-  requestAnimationFrame(floatLoop);
-})(0);
-// override with mouse parallax on move
-document.addEventListener('mousemove', e => {
-  const cx = (e.clientX / window.innerWidth - .5);
-  const cy = (e.clientY / window.innerHeight - .5);
-  shapes.forEach((s, i) => {
-    const d = (i % 3 + 1) * 16;
-    s.style.transform = `translate(${cx * d}px, ${cy * d}px)`;
-  });
-});
+const shapes=document.querySelectorAll('.conf');
+const floatOffsets=Array.from(shapes).map(()=>Math.random()*Math.PI*2);
+(function floatLoop(t){shapes.forEach((s,i)=>{const b=floatOffsets[i];s.style.transform=`translate(${Math.cos(t*.0007+b)*6}px,${Math.sin(t*.001+b)*12}px)`;});requestAnimationFrame(floatLoop);})(0);
+document.addEventListener('mousemove',e=>{const cx=e.clientX/window.innerWidth-.5,cy=e.clientY/window.innerHeight-.5;shapes.forEach((s,i)=>{const d=(i%3+1)*16;s.style.transform=`translate(${cx*d}px,${cy*d}px)`;});});
 
 /* ══════════════════════════════
    TYPEWRITER
 ══════════════════════════════ */
-const tw = document.getElementById('typewriter');
-const words = ['Software Development 💻','System Design 🏗️','Problem Solving 🔍','Web Development 🌐','Data Structures ⚡','Open Source 🌍'];
-let wi = 0, ci = 0, deleting = false;
-function type() {
-  const w = words[wi];
-  if (!deleting) {
-    tw.textContent = w.slice(0, ++ci);
-    if (ci === w.length) { deleting = true; setTimeout(type, 1800); return; }
-  } else {
-    tw.textContent = w.slice(0, --ci);
-    if (ci === 0) { deleting = false; wi = (wi + 1) % words.length; setTimeout(type, 300); return; }
-  }
-  setTimeout(type, deleting ? 55 : 90);
-}
-setTimeout(type, 1200);
+const tw=document.getElementById('typewriter');
+const words=['Software Development 💻','System Design 🏗️','Problem Solving 🔍','Web Development 🌐','Data Structures ⚡','Open Source 🌍'];
+let wi=0,ci=0,deleting=false;
+function type(){const w=words[wi];if(!deleting){tw.textContent=w.slice(0,++ci);if(ci===w.length){deleting=true;setTimeout(type,1800);return;}}else{tw.textContent=w.slice(0,--ci);if(ci===0){deleting=false;wi=(wi+1)%words.length;setTimeout(type,300);return;}}setTimeout(type,deleting?55:90);}
+setTimeout(type,1200);
 
 /* ══════════════════════════════
    SCROLL REVEAL
 ══════════════════════════════ */
-const ro = new IntersectionObserver(entries => {
-  entries.forEach((e, i) => {
-    if (e.isIntersecting) { setTimeout(() => e.target.classList.add('visible'), i * 90); ro.unobserve(e.target); }
-  });
-}, { threshold: .06 });
-document.querySelectorAll('.reveal').forEach(el => ro.observe(el));
+const ro=new IntersectionObserver(entries=>{entries.forEach((e,i)=>{if(e.isIntersecting){setTimeout(()=>e.target.classList.add('visible'),i*90);ro.unobserve(e.target);}});},{threshold:.06});
+document.querySelectorAll('.reveal').forEach(el=>ro.observe(el));
 
 /* ══════════════════════════════
    SKILL BAR ANIMATIONS
 ══════════════════════════════ */
-const bObs = new IntersectionObserver(entries => {
-  entries.forEach(e => { if (e.isIntersecting) { if (e.target.dataset.w) e.target.style.width = e.target.dataset.w; bObs.unobserve(e.target); } });
-}, { threshold: .2 });
-document.querySelectorAll('.skill-fill').forEach(el => bObs.observe(el));
+const bObs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){if(e.target.dataset.w)e.target.style.width=e.target.dataset.w;bObs.unobserve(e.target);}});},{threshold:.2});
+document.querySelectorAll('.skill-fill').forEach(el=>bObs.observe(el));
 
 /* ══════════════════════════════
    NUMBER COUNTER
 ══════════════════════════════ */
-const counterObs = new IntersectionObserver(entries => {
-  entries.forEach(e => {
-    if (!e.isIntersecting) return;
-    const el = e.target;
-    const target = parseFloat(el.dataset.target);
-    const dec = parseInt(el.dataset.decimal || '0');
-    const suffix = el.dataset.suffix || '';
-    if (isNaN(target)) return;
-    counterObs.unobserve(el);
-    let start = 0, duration = 1600;
-    const step = ts => {
-      if (!start) start = ts;
-      const p = Math.min((ts - start) / duration, 1);
-      const ease = 1 - Math.pow(1 - p, 3);
-      el.textContent = (target * ease).toFixed(dec) + suffix;
-      if (p < 1) requestAnimationFrame(step);
-    };
-    requestAnimationFrame(step);
-  });
-}, { threshold: .5 });
-document.querySelectorAll('[data-target]').forEach(el => counterObs.observe(el));
+const counterObs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(!e.isIntersecting)return;const el=e.target,target=parseFloat(el.dataset.target),dec=parseInt(el.dataset.decimal||'0'),suffix=el.dataset.suffix||'';if(isNaN(target))return;counterObs.unobserve(el);let start=0;const step=ts=>{if(!start)start=ts;const p=Math.min((ts-start)/1600,1),ease=1-Math.pow(1-p,3);el.textContent=(target*ease).toFixed(dec)+suffix;if(p<1)requestAnimationFrame(step);};requestAnimationFrame(step);});},{threshold:.5});
+document.querySelectorAll('[data-target]').forEach(el=>counterObs.observe(el));
 
 /* ══════════════════════════════
    NAV ACTIVE
 ══════════════════════════════ */
-const secs = document.querySelectorAll('section[id]');
-const nas = document.querySelectorAll('.nav-links a');
-window.addEventListener('scroll', () => {
-  let cur = '';
-  secs.forEach(s => { if (window.scrollY >= s.offsetTop - 160) cur = s.id; });
-  nas.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + cur));
-}, { passive: true });
+const secs=document.querySelectorAll('section[id]'),nas=document.querySelectorAll('.nav-links a');
+window.addEventListener('scroll',()=>{let cur='';secs.forEach(s=>{if(window.scrollY>=s.offsetTop-160)cur=s.id;});nas.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+cur));},{passive:true});
 
 /* ══════════════════════════════
-   TILT EFFECT (3D)
+   TILT EFFECT
 ══════════════════════════════ */
-document.querySelectorAll('.tilt-card').forEach(card => {
-  card.addEventListener('mousemove', e => {
-    const r = card.getBoundingClientRect();
-    const x = (e.clientX - r.left) / r.width - .5;
-    const y = (e.clientY - r.top) / r.height - .5;
-    card.style.transform = `perspective(600px) rotateY(${x * 12}deg) rotateX(${-y * 10}deg) scale(1.03)`;
-    card.style.boxShadow = `${-x * 10 + 4}px ${-y * 10 + 4}px 0 #1E293B`;
-  });
-  card.addEventListener('mouseleave', () => {
-    card.style.transform = '';
-    card.style.boxShadow = '';
-  });
+document.querySelectorAll('.tilt-card').forEach(card=>{
+  card.addEventListener('mousemove',e=>{const r=card.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;card.style.transform=`perspective(600px) rotateY(${x*12}deg) rotateX(${-y*10}deg) scale(1.03)`;card.style.boxShadow=`${-x*10+4}px ${-y*10+4}px 0 #1E293B`;});
+  card.addEventListener('mouseleave',()=>{card.style.transform='';card.style.boxShadow='';});
 });
 
 /* ══════════════════════════════
    MAGNETIC BUTTONS
 ══════════════════════════════ */
-document.querySelectorAll('.mag-btn').forEach(btn => {
-  btn.addEventListener('mousemove', e => {
-    const r = btn.getBoundingClientRect();
-    const x = e.clientX - r.left - r.width / 2;
-    const y = e.clientY - r.top - r.height / 2;
-    btn.style.transform = `translate(${x * .25}px, ${y * .25}px) translate(-2px,-2px)`;
-  });
-  btn.addEventListener('mouseleave', () => { btn.style.transform = ''; });
+document.querySelectorAll('.mag-btn').forEach(btn=>{
+  btn.addEventListener('mousemove',e=>{const r=btn.getBoundingClientRect(),x=e.clientX-r.left-r.width/2,y=e.clientY-r.top-r.height/2;btn.style.transform=`translate(${x*.25}px,${y*.25}px) translate(-2px,-2px)`;});
+  btn.addEventListener('mouseleave',()=>{btn.style.transform='';});
 });
 
 /* ══════════════════════════════
    CONFETTI BURST
 ══════════════════════════════ */
-const COLORS = ['#8B5CF6','#F472B6','#FBBF24','#34D399','#60A5FA','#F87171'];
-function burst(x, y, count = 18) {
-  for (let i = 0; i < count; i++) {
-    const p = document.createElement('div');
-    p.className = 'confetti-piece';
-    const size = Math.random() * 10 + 6;
-    const angle = (Math.PI * 2 / count) * i + Math.random() * .5;
-    const dist = Math.random() * 80 + 40;
-    p.style.cssText = `
-      left:${x}px; top:${y}px;
-      width:${size}px; height:${size}px;
-      background:${COLORS[Math.floor(Math.random()*COLORS.length)]};
-      border:1.5px solid #1E293B;
-      animation-duration:${Math.random()*.4+.5}s;
-      --tx:${Math.cos(angle)*dist}px;
-      --ty:${Math.sin(angle)*dist}px;
-    `;
-    p.style.setProperty('--tx', Math.cos(angle) * dist + 'px');
-    p.style.setProperty('--ty', Math.sin(angle) * dist + 'px');
-    p.style.animation = `confettiFall ${Math.random()*.4+.5}s ease-out forwards`;
-    document.body.appendChild(p);
-    setTimeout(() => p.remove(), 900);
-  }
-}
-document.querySelectorAll('.btn-primary, .btn-send, .btn-outline').forEach(btn => {
-  btn.addEventListener('click', e => burst(e.clientX, e.clientY));
-});
+const COLORS=['#8B5CF6','#F472B6','#FBBF24','#34D399','#60A5FA','#F87171'];
+function burst(x,y,count=18){for(let i=0;i<count;i++){const p=document.createElement('div');p.className='confetti-piece';const size=Math.random()*10+6,angle=(Math.PI*2/count)*i+Math.random()*.5,dist=Math.random()*80+40;p.style.cssText=`left:${x}px;top:${y}px;width:${size}px;height:${size}px;background:${COLORS[Math.floor(Math.random()*COLORS.length)]};border:1.5px solid #1E293B;`;p.style.setProperty('--tx',Math.cos(angle)*dist+'px');p.style.setProperty('--ty',Math.sin(angle)*dist+'px');p.style.animation=`confettiFall ${Math.random()*.4+.5}s ease-out forwards`;document.body.appendChild(p);setTimeout(()=>p.remove(),900);}}
+document.querySelectorAll('.btn-primary,.btn-send,.btn-outline').forEach(btn=>{btn.addEventListener('click',e=>burst(e.clientX,e.clientY));});
 
 /* ══════════════════════════════
    SCRAMBLE TEXT
 ══════════════════════════════ */
-const CHARS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789@#$%&';
-function scrambleText(el) {
-  const original = el.dataset.text || el.textContent;
-  let frame = 0;
-  const totalFrames = 18;
-  const interval = setInterval(() => {
-    el.textContent = original.split('').map((ch, i) => {
-      if (ch === ' ') return ' ';
-      if (frame / totalFrames > i / original.length) return ch;
-      return CHARS[Math.floor(Math.random() * CHARS.length)];
-    }).join('');
-    frame++;
-    if (frame > totalFrames) {
-      el.textContent = original;
-      clearInterval(interval);
-    }
-  }, 40);
-}
-document.querySelectorAll('.scramble').forEach(el => {
-  el.addEventListener('mouseenter', () => scrambleText(el));
-});
-// also scramble section titles on scroll into view
-const scrambleTitles = document.querySelectorAll('.section-title');
-const scrObs = new IntersectionObserver(entries => {
-  entries.forEach(e => {
-    if (e.isIntersecting) {
-      const spans = e.target.querySelectorAll('.hl');
-      spans.forEach(s => { s.dataset.text = s.textContent; setTimeout(() => scrambleText(s), 200); });
-      scrObs.unobserve(e.target);
-    }
-  });
-}, { threshold: .5 });
-scrambleTitles.forEach(t => scrObs.observe(t));
+const CHARS='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789@#$%&';
+function scrambleText(el){const original=el.dataset.text||el.textContent;let frame=0;const totalFrames=18;const interval=setInterval(()=>{el.textContent=original.split('').map((ch,i)=>{if(ch===' ')return ' ';if(frame/totalFrames>i/original.length)return ch;return CHARS[Math.floor(Math.random()*CHARS.length)];}).join('');frame++;if(frame>totalFrames){el.textContent=original;clearInterval(interval);}},40);}
+document.querySelectorAll('.scramble').forEach(el=>{el.addEventListener('mouseenter',()=>scrambleText(el));});
+const scrambleTitles=document.querySelectorAll('.section-title');
+const scrObs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.querySelectorAll('.hl').forEach(s=>{s.dataset.text=s.textContent;setTimeout(()=>scrambleText(s),200);});scrObs.unobserve(e.target);}});},{threshold:.5});
+scrambleTitles.forEach(t=>scrObs.observe(t));
 
 /* ══════════════════════════════
-   MORPHING TEXT (hero chip)
+   MORPHING CHIP TEXT
 ══════════════════════════════ */
-const chipEl = document.querySelector('.hero-chip');
-const chipTexts = [
-  '🎓 CSE · KYAU · 2nd Year',
-  '💻 Software Developer',
-  '🔍 Problem Solver',
-  '🚀 Future Engineer',
-  '⚡ Always Coding',
+const chipEl=document.querySelector('.hero-chip');
+const chipTexts=['🎓 CSE · KYAU · 2nd Year','💻 Software Developer','🔍 Problem Solver','🚀 Future Engineer','⚡ Always Coding'];
+let chipIdx=0;
+setInterval(()=>{chipIdx=(chipIdx+1)%chipTexts.length;chipEl.style.opacity='0';chipEl.style.transform='translateY(-6px)';setTimeout(()=>{chipEl.textContent=chipTexts[chipIdx];chipEl.style.transition='opacity .3s ease,transform .3s cubic-bezier(.34,1.56,.64,1)';chipEl.style.opacity='1';chipEl.style.transform='translateY(0)';},300);},2800);
+
+/* ══════════════════════════════
+   KONAMI CODE
+══════════════════════════════ */
+const KONAMI=['ArrowUp','ArrowUp','ArrowDown','ArrowDown','ArrowLeft','ArrowRight','ArrowLeft','ArrowRight','b','a'];
+let konamiIdx=0;
+const konamiOverlay=document.getElementById('konami-overlay');
+document.addEventListener('keydown',e=>{
+  if(e.key===KONAMI[konamiIdx]){konamiIdx++;if(konamiIdx===KONAMI.length){konamiIdx=0;konamiOverlay.classList.add('show');for(let i=0;i<5;i++)setTimeout(()=>burst(window.innerWidth/2+(Math.random()-.5)*300,window.innerHeight/2+(Math.random()-.5)*200,20),i*150);}}
+  else konamiIdx=0;
+});
+document.getElementById('konamiClose').addEventListener('click',()=>{konamiOverlay.classList.remove('show');burst(window.innerWidth/2,window.innerHeight/2,15);});
+
+
+
+
+
+/* ════════════════════════════════════════
+   ✦ FEATURE 2: PROJECT MODAL POPUP
+════════════════════════════════════════ */
+const projects=[
+  {type:'Web App',title:'Project Name One',desc:'A full-stack web application built with React and Node.js. It solves real problems by providing an intuitive interface and powerful backend logic. Users can interact seamlessly with data in real time.',emoji:'🗂️',bg:'linear-gradient(135deg,#ede9fe,#ddd6fe)',stack:['React','Node.js','Express','MongoDB'],link:'https://github.com/alif6280'},
+  {type:'Data Project',title:'Project Name Two',desc:'A data analysis project using Python and SQL. Explored large datasets, identified key trends, and created visual dashboards to communicate insights clearly and effectively.',emoji:'📊',bg:'linear-gradient(135deg,#fce7f3,#fbcfe8)',stack:['Python','SQL','Pandas','Matplotlib'],link:'https://github.com/alif6280'},
+  {type:'AI Project',title:'Project Name Three',desc:'An AI/ML project that leverages machine learning to solve a real-world problem. Involved model training, evaluation, and deployment with clean, production-ready code.',emoji:'🤖',bg:'linear-gradient(135deg,#d1fae5,#a7f3d0)',stack:['Python','TensorFlow','scikit-learn','NumPy'],link:'https://github.com/alif6280'},
 ];
-let chipIdx = 0;
-setInterval(() => {
-  chipIdx = (chipIdx + 1) % chipTexts.length;
-  chipEl.style.opacity = '0';
-  chipEl.style.transform = 'translateY(-6px)';
-  setTimeout(() => {
-    chipEl.textContent = chipTexts[chipIdx];
-    chipEl.style.transition = 'opacity .3s ease, transform .3s cubic-bezier(.34,1.56,.64,1)';
-    chipEl.style.opacity = '1';
-    chipEl.style.transform = 'translateY(0)';
-  }, 300);
-}, 2800);
+const modalOverlay=document.getElementById('proj-modal-overlay');
+function openModal(i){
+  const p=projects[i];
+  document.getElementById('modal-thumb').style.background=p.bg;
+  document.getElementById('modal-thumb').innerHTML=`<span style="font-size:4rem">${p.emoji}</span>`;
+  document.getElementById('modal-type').textContent=p.type;
+  document.getElementById('modal-title').textContent=p.title;
+  document.getElementById('modal-desc').textContent=p.desc;
+  document.getElementById('modal-stack').innerHTML=p.stack.map(s=>`<span>${s}</span>`).join('');
+  document.getElementById('modal-link').href=p.link;
+  modalOverlay.classList.add('open');
+  burst(window.innerWidth/2,window.innerHeight/2,10);
+}
+document.getElementById('modal-close').addEventListener('click',()=>modalOverlay.classList.remove('open'));
+modalOverlay.addEventListener('click',e=>{if(e.target===modalOverlay)modalOverlay.classList.remove('open');});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')modalOverlay.classList.remove('open');});
 
-/* ══════════════════════════════
-   KONAMI CODE EASTER EGG
-══════════════════════════════ */
-const KONAMI = ['ArrowUp','ArrowUp','ArrowDown','ArrowDown','ArrowLeft','ArrowRight','ArrowLeft','ArrowRight','b','a'];
-let konamiIdx = 0;
-const konamiOverlay = document.getElementById('konami-overlay');
-const konamiClose = document.getElementById('konamiClose');
 
-document.addEventListener('keydown', e => {
-  if (e.key === KONAMI[konamiIdx]) {
-    konamiIdx++;
-    if (konamiIdx === KONAMI.length) {
-      konamiIdx = 0;
-      konamiOverlay.classList.add('show');
-      // burst confetti from center
-      for (let i = 0; i < 5; i++) {
-        setTimeout(() => burst(
-          window.innerWidth / 2 + (Math.random() - .5) * 300,
-          window.innerHeight / 2 + (Math.random() - .5) * 200,
-          20
-        ), i * 150);
-      }
-    }
-  } else {
-    konamiIdx = 0;
+/* ════════════════════════════════════════
+   ✦ FEATURE 3: TYPING SOUND EFFECT
+════════════════════════════════════════ */
+let soundOn=true;
+const soundBtn=document.getElementById('sound-toggle');
+const AudioCtx=window.AudioContext||window.webkitAudioContext;
+let actx=null;
+function playKeyClick(){
+  if(!soundOn)return;
+  try{
+    if(!actx)actx=new AudioCtx();
+    const osc=actx.createOscillator();
+    const gain=actx.createGain();
+    osc.connect(gain);gain.connect(actx.destination);
+    osc.frequency.setValueAtTime(800+Math.random()*400,actx.currentTime);
+    osc.frequency.exponentialRampToValueAtTime(200,actx.currentTime+0.04);
+    gain.gain.setValueAtTime(0.08,actx.currentTime);
+    gain.gain.exponentialRampToValueAtTime(0.001,actx.currentTime+0.06);
+    osc.type='square';
+    osc.start(actx.currentTime);osc.stop(actx.currentTime+0.06);
+  }catch(e){}
+}
+soundBtn.addEventListener('click',()=>{soundOn=!soundOn;soundBtn.textContent=soundOn?'🔊':'🔇';soundBtn.classList.toggle('muted',!soundOn);});
+document.addEventListener('keydown',e=>{if(e.key.length===1||e.key==='Backspace'||e.key==='Space')playKeyClick();});
+// also play on typing in form inputs
+document.querySelectorAll('.fi,.fta,#chat-input,#terminal-input').forEach(inp=>{inp.addEventListener('keydown',()=>playKeyClick());});
+
+
+/* ════════════════════════════════════════
+   ✦ FEATURE 4: AI CHAT ASSISTANT
+════════════════════════════════════════ */
+const chatBtn=document.getElementById('ai-chat-btn');
+const chatBubble=document.getElementById('ai-chat-bubble');
+const chatMsgs=document.getElementById('chat-msgs');
+const chatInput=document.getElementById('chat-input');
+const chatSend=document.getElementById('chat-send');
+let chatOpen=false;
+
+chatBtn.addEventListener('click',()=>{
+  chatOpen=!chatOpen;
+  chatBubble.classList.toggle('open',chatOpen);
+  chatBtn.textContent=chatOpen?'✕':'🤖';
+  if(chatOpen)setTimeout(()=>chatInput.focus(),300);
+});
+
+const alifKnowledge={
+  name:'MD. Montasir Monir Alif',cgpa:'3.72/4.00',year:'2nd Year',
+  uni:'Khwaja Yunus Ali University',dept:'CSE',from:'Belkuchi, Sirajganj, Bangladesh',
+  skills:['Python','C/C++','Java','JavaScript','HTML/CSS','MySQL','Git','GitHub','VS Code','Figma','DSA','OOP'],
+  projects:3,status:'Seeking Internship',
+  email:'mr.alifpm16@gmail.com',github:'github.com/alif6280',linkedin:'linkedin.com/in/alif6280/',
+  ssc:'5.00/5.00',hsc:'4.50/5.00',
+};
+
+function getBotReply(q){
+  q=q.toLowerCase();
+  if(q.includes('who')||q.includes('alif')||q.includes('name')||q.includes('কে'))
+    return `I'm Alif's assistant! 😊 He's **${alifKnowledge.name}** — a ${alifKnowledge.year} CSE student at ${alifKnowledge.uni} with a CGPA of ${alifKnowledge.cgpa}. He's from ${alifKnowledge.from}.`;
+  if(q.includes('skill')||q.includes('tech')||q.includes('stack')||q.includes('language'))
+    return `Alif knows: ${alifKnowledge.skills.slice(0,6).join(', ')} and more! He's especially strong in Programming & Problem Solving. 💻`;
+  if(q.includes('intern')||q.includes('hire')||q.includes('available')||q.includes('job')||q.includes('work'))
+    return `Yes! Alif is actively **${alifKnowledge.status}**. 🟢 You can reach him at ${alifKnowledge.email} or connect on LinkedIn!`;
+  if(q.includes('project')||q.includes('build')||q.includes('made'))
+    return `Alif has built ${alifKnowledge.projects}+ projects including Web Apps, Data Projects, and AI/ML projects! Click "View Project" on any card to see details. 🚀`;
+  if(q.includes('cgpa')||q.includes('grade')||q.includes('gpa')||q.includes('result'))
+    return `Alif's current CGPA is **${alifKnowledge.cgpa}** 📈 He got **${alifKnowledge.ssc}** in SSC and **${alifKnowledge.hsc}** in HSC. Solid academic record!`;
+  if(q.includes('contact')||q.includes('email')||q.includes('reach')||q.includes('connect'))
+    return `You can reach Alif at:\n📧 ${alifKnowledge.email}\n💼 ${alifKnowledge.linkedin}\n🐙 ${alifKnowledge.github}`;
+  if(q.includes('university')||q.includes('uni')||q.includes('college')||q.includes('study'))
+    return `Alif studies **CSE** at **${alifKnowledge.uni}**, Sirajganj, Bangladesh. He's in his **${alifKnowledge.year}** and expected to graduate in 2026! 🎓`;
+  if(q.includes('from')||q.includes('location')||q.includes('where')||q.includes('live'))
+    return `Alif is from **${alifKnowledge.from}** 📍 He's currently studying in Sirajganj, Bangladesh.`;
+  if(q.includes('hello')||q.includes('hi')||q.includes('hey')||q.includes('হ্যালো'))
+    return `Hello! 👋 I'm Alif's AI assistant. I can tell you about his skills, projects, education, and how to contact him. What would you like to know?`;
+  if(q.includes('dream')||q.includes('goal')||q.includes('future')||q.includes('want'))
+    return `Alif's dream is to become a **Software Engineer** at a top tech company! 🚀 He believes in Dream · Dedication · Discipline 💪`;
+  return `Hmm, I'm not sure about that! 🤔 Try asking about Alif's **skills**, **projects**, **education**, or **contact info**. I know all about him! 😊`;
+}
+
+function addMsg(text,role){
+  const d=document.createElement('div');
+  d.className=`chat-msg ${role}`;
+  d.textContent=text;
+  chatMsgs.appendChild(d);
+  chatMsgs.scrollTop=chatMsgs.scrollHeight;
+  return d;
+}
+
+function sendChat(msg){
+  if(!msg.trim())return;
+  addMsg(msg,'user');
+  chatInput.value='';
+  // typing indicator
+  const typingEl=document.createElement('div');
+  typingEl.className='chat-msg typing';
+  typingEl.innerHTML='<div class="typing-dots"><span></span><span></span><span></span></div>';
+  chatMsgs.appendChild(typingEl);
+  chatMsgs.scrollTop=chatMsgs.scrollHeight;
+  setTimeout(()=>{
+    typingEl.remove();
+    addMsg(getBotReply(msg),'bot');
+  },800+Math.random()*600);
+}
+
+chatSend.addEventListener('click',()=>sendChat(chatInput.value));
+chatInput.addEventListener('keydown',e=>{if(e.key==='Enter')sendChat(chatInput.value);});
+
+function quickAsk(q){chatInput.value=q;sendChat(q);}
+
+
+/* ════════════════════════════════════════
+   ✦ FEATURE 5: TERMINAL MODE
+════════════════════════════════════════ */
+const termOverlay=document.getElementById('terminal-overlay');
+const termBody=document.getElementById('terminal-body');
+const termInput=document.getElementById('terminal-input');
+
+function termPrint(text,cls='out'){
+  const d=document.createElement('div');
+  d.className='term-line '+cls;
+  d.textContent=text;
+  termBody.appendChild(d);
+  termBody.scrollTop=termBody.scrollHeight;
+}
+function termBlank(){termPrint('');}
+
+const termCmds={
+  help:()=>{
+    termPrint('Available commands:','info');
+    termBlank();
+    termPrint('  about       — About Alif','out');
+    termPrint('  skills      — List all skills','out');
+    termPrint('  projects    — View projects','out');
+    termPrint('  contact     — Contact info','out');
+    termPrint('  cgpa        — Academic record','out');
+    termPrint('  github      — Open GitHub','out');
+    termPrint('  clear       — Clear terminal','out');
+    termPrint('  exit        — Close terminal','out');
+    termBlank();
+    termPrint('  matrix      — Activate Matrix mode 🟢','success');
+    termBlank();
+  },
+  about:()=>{
+    termPrint('> whoami','cmd');
+    termBlank();
+    termPrint('Name    : MD. Montasir Monir Alif','success');
+    termPrint('Uni     : Khwaja Yunus Ali University','success');
+    termPrint('Dept    : CSE — 2nd Year','success');
+    termPrint('From    : Belkuchi, Sirajganj, BD','success');
+    termPrint('Status  : Seeking Internship 🟢','success');
+    termBlank();
+  },
+  skills:()=>{
+    termPrint('> cat skills.json','cmd');
+    termBlank();
+    termPrint('Languages  : Python, C/C++, Java, JavaScript','out');
+    termPrint('Web        : HTML, CSS, MySQL','out');
+    termPrint('Tools      : Git, GitHub, VS Code, Figma','out');
+    termPrint('Concepts   : DSA, OOP, OS, Networking','out');
+    termBlank();
+  },
+  projects:()=>{
+    termPrint('> ls ./projects','cmd');
+    termBlank();
+    termPrint('[01] Project Name One  — React, Node.js','out');
+    termPrint('[02] Project Name Two  — Python, SQL','out');
+    termPrint('[03] Project Name Three — Python, ML','out');
+    termBlank();
+    termPrint('Tip: Open the portfolio to view details!','info');
+    termBlank();
+  },
+  contact:()=>{
+    termPrint('> cat contact.txt','cmd');
+    termBlank();
+    termPrint('Email    : mr.alifpm16@gmail.com','success');
+    termPrint('GitHub   : github.com/alif6280','success');
+    termPrint('LinkedIn : linkedin.com/in/alif6280/','success');
+    termPrint('Phone    : +880 1824 063908','success');
+    termBlank();
+  },
+  cgpa:()=>{
+    termPrint('> cat academics.log','cmd');
+    termBlank();
+    termPrint('B.Sc. CSE (Current) : 3.72 / 4.00','success');
+    termPrint('HSC (2023)          : 4.50 / 5.00','success');
+    termPrint('SSC (2020)          : 5.00 / 5.00 🏆','success');
+    termBlank();
+  },
+  github:()=>{termPrint('Opening GitHub...','info');setTimeout(()=>window.open('https://github.com/alif6280','_blank'),600);},
+  matrix:()=>{termPrint('Activating Matrix mode...','success');setTimeout(()=>activateMatrix(),500);},
+  clear:()=>{termBody.innerHTML='';termPrint('Terminal cleared.','info');termBlank();},
+  exit:()=>{termOverlay.classList.remove('open');},
+};
+
+function initTerm(){
+  termBody.innerHTML='';
+  termPrint('╔════════════════════════════════╗','success');
+  termPrint('║   ALIF PORTFOLIO TERMINAL v1.0 ║','success');
+  termPrint('╚════════════════════════════════╝','success');
+  termBlank();
+  termPrint('Type "help" to see available commands.','info');
+  termBlank();
+}
+
+document.getElementById('term-open-btn').addEventListener('click',()=>{
+  initTerm();
+  termOverlay.classList.add('open');
+  setTimeout(()=>termInput.focus(),300);
+});
+document.getElementById('term-close-dot').addEventListener('click',()=>termOverlay.classList.remove('open'));
+
+termInput.addEventListener('keydown',e=>{
+  if(e.key!=='Enter')return;
+  const cmd=termInput.value.trim().toLowerCase();
+  termInput.value='';
+  if(!cmd)return;
+  termPrint('alif@portfolio:~$ '+cmd,'cmd');
+  if(termCmds[cmd])termCmds[cmd]();
+  else{termPrint(`Command not found: ${cmd}. Type 'help' for list.`,'error');termBlank();}
+});
+
+
+
+
+
+/* ════════════════════════════════════════
+   ✦ FEATURE 7: MATRIX RAIN SECRET MODE
+════════════════════════════════════════ */
+const matrixOverlay=document.getElementById('matrix-overlay');
+const matrixExit=document.getElementById('matrix-exit');
+const canvas=document.getElementById('matrix-canvas');
+const mctx=canvas.getContext('2d');
+let matrixActive=false,matrixRaf=null;
+
+function activateMatrix(){
+  matrixActive=true;
+  matrixOverlay.classList.add('show');
+  matrixExit.classList.add('show');
+  canvas.width=window.innerWidth;
+  canvas.height=window.innerHeight;
+  const cols=Math.floor(canvas.width/18);
+  const drops=Array(cols).fill(1);
+  const chars='ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789アイウエオカキクケコ@#$%&アリフ';
+  function draw(){
+    mctx.fillStyle='rgba(0,0,0,0.05)';
+    mctx.fillRect(0,0,canvas.width,canvas.height);
+    mctx.fillStyle='#00ff41';
+    mctx.font='16px monospace';
+    drops.forEach((y,i)=>{
+      const ch=chars[Math.floor(Math.random()*chars.length)];
+      mctx.fillStyle=Math.random()>.97?'#fff':'#00ff41';
+      mctx.fillText(ch,i*18,y*18);
+      if(y*18>canvas.height&&Math.random()>.975)drops[i]=0;
+      drops[i]++;
+    });
+    matrixRaf=requestAnimationFrame(draw);
   }
-});
-konamiClose.addEventListener('click', () => {
-  konamiOverlay.classList.remove('show');
-  burst(konamiClose.getBoundingClientRect().left, konamiClose.getBoundingClientRect().top);
+  draw();
+}
+
+matrixExit.addEventListener('click',()=>{
+  matrixActive=false;
+  matrixOverlay.classList.remove('show');
+  matrixExit.classList.remove('show');
+  if(matrixRaf)cancelAnimationFrame(matrixRaf);
+  mctx.clearRect(0,0,canvas.width,canvas.height);
 });
 
+// Secret keyword "matrix" typed anywhere
+let secretBuffer='';
+document.addEventListener('keydown',e=>{
+  if(termOverlay.classList.contains('open')||document.activeElement.tagName==='INPUT'||document.activeElement.tagName==='TEXTAREA')return;
+  secretBuffer+=e.key.toLowerCase();
+  secretBuffer=secretBuffer.slice(-8);
+  if(secretBuffer.includes('matrix')&&!matrixActive)activateMatrix();
+});
+
+window.addEventListener('resize',()=>{if(matrixActive){canvas.width=window.innerWidth;canvas.height=window.innerHeight;}});
 
 </script>
 </body>
