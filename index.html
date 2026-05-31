@@ -61,12 +61,14 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;display:flex;align-items:ce
 .nav-badge-dot{width:7px;height:7px;background:var(--fg);border-radius:50%;animation:pulse 1.8s infinite;}
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
 
-/* Mobile Nav */
-.nav-hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:.3rem;background:none;border:none;z-index:1100;}
-.nav-hamburger span{display:block;width:22px;height:2.5px;background:var(--fg);border-radius:9999px;transition:all .3s ease;}
+/* Mobile Nav - hidden by default, shown in mobile breakpoint */
+.nav-hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:.4rem .5rem;background:none;border:2px solid var(--fg);border-radius:8px;z-index:1200;box-shadow:2px 2px 0 var(--fg);-webkit-tap-highlight-color:transparent;position:relative;}
+.nav-hamburger span{display:block;width:20px;height:2.5px;background:var(--fg);border-radius:9999px;transition:all .3s ease;}
 .nav-hamburger.open span:nth-child(1){transform:translateY(7.5px) rotate(45deg);}
 .nav-hamburger.open span:nth-child(2){opacity:0;}
 .nav-hamburger.open span:nth-child(3){transform:translateY(-7.5px) rotate(-45deg);}
+/* Desktop: nav links wrap always visible */
+.nav-links-wrap{display:flex;align-items:center;}
 
 /* ── HERO ── */
 #home{min-height:100svh;padding:5.5rem 4% 4rem;position:relative;overflow:hidden;display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center;}
@@ -426,23 +428,44 @@ footer{background:var(--fg);color:var(--bg);border-top:2px solid rgba(255,255,25
 /* ── Mobile (≤640px) ── */
 @media(max-width:640px){
   /* Nav → hamburger menu */
-  .nav-links-wrap{
-    position:fixed;top:0;left:0;right:0;bottom:0;
-    background:rgba(255,253,245,.97);
-    backdrop-filter:blur(16px);
-    display:flex;flex-direction:column;
-    align-items:center;justify-content:center;
-    gap:1rem;
-    z-index:999;
-    transform:translateY(-100%);
-    transition:transform .35s cubic-bezier(.34,1.2,.64,1);
-  }
-  .nav-links-wrap.mobile-open{transform:translateY(0);}
-  .nav-links{flex-direction:column;align-items:center;gap:.5rem;}
-  .nav-links a{font-size:1.1rem;padding:.6rem 1.6rem;border:2px solid transparent;}
-  .nav-links a:hover,.nav-links a.active{background:var(--fg);color:var(--bg);border-color:var(--fg);}
-  .nav-hamburger{display:flex;}
+  .nav-hamburger{display:flex;z-index:1200;}
   .nav-badge{display:none;}
+  .nav-links-wrap{
+    position:fixed;
+    top:0;left:0;right:0;bottom:0;
+    width:100vw;height:100vh;
+    background:rgba(255,253,245,.99);
+    display:flex !important;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    gap:0;
+    z-index:1100;
+    opacity:0;
+    visibility:hidden;
+    transition:opacity .3s ease,visibility .3s ease;
+    pointer-events:none;
+    overflow:hidden;
+  }
+  .nav-links-wrap.mobile-open{opacity:1;visibility:visible;pointer-events:all;}
+  .nav-links{
+    flex-direction:column;
+    align-items:center;
+    gap:.4rem;
+    width:100%;
+    padding:0 2rem;
+  }
+  .nav-links li{list-style:none;width:100%;text-align:center;}
+  .nav-links a{
+    font-size:1.4rem;
+    font-weight:700;
+    padding:.9rem 2rem;
+    border:2px solid transparent;
+    border-radius:9999px;
+    display:block;
+    width:100%;
+  }
+  .nav-links a:hover,.nav-links a.active{background:var(--fg);color:var(--bg);border-color:var(--fg);}
 
   /* Hero */
   #home{padding:4.5rem 5% 3rem;gap:1.5rem;}
@@ -881,17 +904,11 @@ if(dot&&ring){
 /* ── HAMBURGER MENU ── */
 const hamburger=document.getElementById('hamburger');
 const navLinksWrap=document.getElementById('navLinksWrap');
-hamburger.addEventListener('click',()=>{
-  hamburger.classList.toggle('open');
-  navLinksWrap.classList.toggle('mobile-open');
-});
-// Close on link click
-document.querySelectorAll('.nav-link-item').forEach(a=>{
-  a.addEventListener('click',()=>{
-    hamburger.classList.remove('open');
-    navLinksWrap.classList.remove('mobile-open');
-  });
-});
+function closeMenu(){hamburger.classList.remove('open');navLinksWrap.classList.remove('mobile-open');}
+hamburger.addEventListener('click',()=>{hamburger.classList.toggle('open');navLinksWrap.classList.toggle('mobile-open');});
+const menuCloseBtn=document.getElementById('menuClose');
+if(menuCloseBtn)menuCloseBtn.addEventListener('click',closeMenu);
+document.querySelectorAll('.nav-link-item').forEach(a=>{a.addEventListener('click',closeMenu);});
 
 /* ── PARALLAX SHAPES ── */
 const shapes=document.querySelectorAll('.conf');
